@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCodepen, FaStore, FaUserFriends, Fausers } from 'react-icons/fa';
+import { FaCode, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 import { useEffect, useContext } from 'react';
 import GithubContext from '../context/github/GithubContext';
 import { useParams, Link } from 'react-router-dom';
@@ -70,6 +70,68 @@ function User() {
 								</a>
 							</div>
 						</div>
+						<div className="w-full rounded-lg shadow-md bg-base-100 stats">
+							{location && (
+								<div className="stat">
+									<div className="stat-title text-md">Location</div>
+									<div className="stat-value text-lg">{location}</div>
+								</div>
+							)}
+							{blog && (
+								<div className="stat">
+									<div className="stat-title text-md">Website</div>
+									<div className="stat-value text-lg">
+										<a href={`https://${blog}`} target="_blank" rel="noreferrer">
+											{blog}
+										</a>
+									</div>
+								</div>
+							)}
+							{twitter_username && (
+								<div className="stat">
+									<div className="stat-title text-md">Website</div>
+									<div className="stat-value text-lg">
+										<a
+											href={`https://twitter.com/${twitter_username}`}
+											target="_blank"
+											rel="noreferrer"
+										>
+											{twitter_username}
+										</a>
+									</div>
+								</div>
+							)}
+						</div>
+					</div>
+				</div>
+				<div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
+					<div className="stat">
+						<div className="stat-figure text-info">
+							<FaUsers className="text-3xl md:text-5xl" />
+						</div>
+						<div className="stat-title pr-5">Followers</div>
+						<div className="stat-value pr-5 text-3xl md:text-4xl">{followers}</div>
+					</div>
+					<div className="stat">
+						<div className="stat-figure text-info">
+							<FaUserFriends className="text-3xl md:text-5xl" />
+						</div>
+						<div className="stat-title pr-5">Following</div>
+						<div className="stat-value pr-5 text-3xl md:text-4xl">{following}</div>
+					</div>
+					<div className="stat">
+						<div className="stat-figure text-info">
+							<FaCode className="text-3xl md:text-5xl" />
+						</div>
+						<div className="stat-title pr-5">Public Repositories</div>
+						<div className="stat-value pr-5 text-3xl md:text-4xl">{public_repos}</div>
+					</div>
+					<div className="stat">
+						<div className="stat-figure text-info">
+							<FaStore className="text-3xl md:text-5xl" />
+						</div>
+						<div className="stat-title pr-5">Public Gists</div>
+						<div className="stat-value pr-5 text-3xl md:text-4xl">{public_gists}</div>
 					</div>
 				</div>
 			</div>
